@@ -2,6 +2,8 @@
 CREATE DATABASE foundation_exam;
 USE foundation_exam;
 
+-- 4.1    Write (and execute) syntax to create the following tables:
+
 CREATE Table movie_info(
 movie_ID INT NOT NULL UNIQUE, 
 movie_name VARCHAR(500), 
@@ -24,7 +26,8 @@ screen_ID INT NOT NULL,
 start_time time, 
 available_seats INT,
 FOREIGN KEY (movie_ID) REFERENCES movie_info(movie_ID),
-FOREIGN KEY (screen_ID) REFERENCES screens(screen_ID) );
+FOREIGN KEY (screen_ID) REFERENCES screens(screen_ID) 
+ );
 
 INSERT INTO movie_info(movie_ID, movie_name, movie_length, age_rating)
  VALUES 
@@ -75,6 +78,7 @@ INSERT INTO showings(showing_ID, movie_ID,screen_ID, start_time, available_seats
   (20, 9, 3, '17:00:00', 0);
   
 -- QUERIES 
+-- 4.2    Write a query to return the name and time of all movies that play after 12:00 given there is at least 1 available seat. Display the results in time order.
 
 SELECT 
 s. movie_ID, 
@@ -85,3 +89,12 @@ WHERE start_time > '12:00:00' AND available_seats >= 1
 ORDER BY start_time;
 
 
+-- 4.3    Return the name of the movie with the most showings.
+
+select 
+m.movie_name
+from movie_info m 
+join showings s on m.movie_id = s. movie_ID
+group by movie_name
+order by count(*) desc
+limit 1
