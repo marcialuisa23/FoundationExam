@@ -1,6 +1,4 @@
 # question 2.1
-import re
-
 
 def is_isogram(word):
 
