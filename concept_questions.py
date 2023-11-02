@@ -8,7 +8,9 @@ def is_isogram(word):
     return len(word) > 0 and len(word) == len(set(word.lower()))
 
 
-# from question_2_1 import is_isogram
+# question 2.2 
+
+from question_2_1 import is_isogram
 
 def test_is_isograms_with_isograms():
     # test with isograms to show it detects them
