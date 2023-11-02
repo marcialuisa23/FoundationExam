@@ -1,6 +1,10 @@
 
 # question 2.2 
 
+  # 2.2   Make a new test file and write comprehensive unit tests for the
+  #            function you wrote in 2.1
+  #            For each test case add a comment stating why you chose that case.
+
 from question_2_1 import is_isogram
 
 def test_is_isograms_with_isograms():
